@@ -1,0 +1,44 @@
+{
+  "data":[{
+        "id": 1,
+         "name": "SummonerBoost",
+        "cooldown": 180},
+        {
+        "id": 3,
+        "name": "SummonerExhaust",
+        "cooldown": 180},
+        {
+        "id": 4,
+        "name": "SummonerFlash",
+        "cooldown": 180},
+        {
+        "id": 6,
+        "name": "SummonerHaste",
+        "cooldown": 180},
+        {
+        "id": 7,
+        "name": "SummonerHeal",
+        "cooldown": 180},
+        {
+        "id":11,
+        "name": "SummonerSmite",
+        "cooldown": 180},
+        {
+        "id": 12,
+        "name": "SummonerTeleport",
+        "cooldown": 180},
+        {
+        "id": 13,
+        "name": "SummonerMana",
+        "cooldown": 180},
+        {
+        "id": 14,
+        "name": "SummonerDot",
+        "cooldown": 180},
+        {
+        "id": 21,
+        "name": "SummonerBarrier",
+        "cooldown": 180}
+        
+  ]
+}
