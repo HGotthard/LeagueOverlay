@@ -1,8 +1,9 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using RiotSharp;
-using RiotSharp.Misc;
+using RiotNet;
+using RiotNet.Models;
 using System;
+using QuickTypeChamps;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -16,48 +17,53 @@ using Region = RiotSharp.Misc.Region;
 
 namespace LeagueOverlay
 {
+
     class RiotConnect
     {
-        public void init(Form1 form1)
+        private List<CdLabel> cdTable = new List<CdLabel>();
+
+        public async Task InitAsync(Form1 form1)
         {
-            var api = RiotApi.GetDevelopmentInstance("RGAPI-2b9edc7a-bfcb-442f-ba9d-3b7794c32481");
-
-
             try
             {
-                var summoner = api.GetSummonerByName(RiotSharp.Misc.Region.euw, "SlimeBoy");
-                var match = api.GetCurrentGame(Region.euw, summoner.Id);
-                var teamId = match.Participants.Find(x => x.SummonerId == summoner.Id).TeamId;
 
 
-                var sum = match.Participants.FindAll(x => x.TeamId != teamId);
+                IRiotClient client = new RiotClient(new RiotClientSettings
+                {
+                    ApiKey = "RGAPI-2b9edc7a-bfcb-442f-ba9d-3b7794c32481"
+                });
 
+                Summoner actSummoner = await client.GetSummonerBySummonerNameAsync("Proxyfox", PlatformId.EUW1).ConfigureAwait(false);
+
+                CurrentGameInfo gameInfo = await client.GetActiveGameBySummonerIdAsync(actSummoner.Id, PlatformId.EUW1);
+                var teamId = gameInfo.Participants.Find(x => x.SummonerId == actSummoner.Id).TeamId;
+                var sum = gameInfo.Participants.FindAll(x => x.TeamId != teamId);
 
                 //get json for cooldowns
                 StreamReader r = new StreamReader("summoner.json");
                 string json = r.ReadToEnd();
                 var sumsData = JsonConvert.DeserializeObject<QuickType.RiotData>(json);
 
-              
-
+                StreamReader r2 = new StreamReader("champions.json");
+                string json2 = r2.ReadToEnd();
+                var chamData = JsonConvert.DeserializeObject<RiotChampData>(json2);
 
                 int i = 0;
-                foreach (var summoners in sum)
+                foreach (var summoner in sum)
                 {
-
-                    var sum1 = summoners.SummonerSpell1;
-                    var sum2 = summoners.SummonerSpell2;
-                    var champId = summoners.ChampionId;
+                    var sum1 = summoner.Spell1Id;
+                    var sum2 = summoner.Spell2Id;
+                    var champId = summoner.ChampionId;
 
                     form1.pb[i].Image = GetSummonnerSpellPicture(sum1);
                     form1.pb[i + 1].Image = GetSummonnerSpellPicture(sum2);
 
-                    long cooldown1 = 0;
-                    long cooldown2 = 0;
+                    int cooldown1 = 0;
+                    int cooldown2 = 0;
                     //set cooldown
                     foreach (var sumData in sumsData.Data)
                     {
-                        if(sumData.Id == sum1)
+                        if (sumData.Id == sum1)
                         {
                             cooldown1 = sumData.Cooldown;
                         }
@@ -67,28 +73,35 @@ namespace LeagueOverlay
                             cooldown2 = sumData.Cooldown;
                         }
 
-                        if(cooldown1 != 0 && cooldown2 != 0)
+                        if (cooldown1 != 0 && cooldown2 != 0)
                         {
                             break;
                         }
                     }
 
-                    //Label setCooldown;
-                    //cooldown1 ungerade - cooldown2 gerade
-                    form1.lb[i].Text = cooldown1.ToString();
-                    form1.lb[i+1].Text = cooldown2.ToString();
+                    //Label setCooldown
 
+                    form1.lb[i].Invoke((MethodInvoker)delegate ()
+                     {
+                         form1.lb[i].Text = cooldown1.ToString();
+                         form1.lb[i + 1].Text = cooldown2.ToString();
+                         form1.championLabel[i / 2].Text = GetChampionLabel(chamData, champId);
+                     });
+
+
+
+                    cdTable.Add(new CdLabel(form1.lb[i], cooldown1));
+                    cdTable.Add(new CdLabel(form1.lb[i + 1], cooldown2));
 
                     i = i + 2;
-                    Debug.WriteLine("summoner1: " + sum2);
-                    //Add picture to picture bumms
-                }
 
+                }
             }
-            catch (RiotSharpException e)
+            catch (Exception e)
             {
-                Debug.WriteLine("No user found" + e.ToString());
+                Debug.WriteLine(e);
             }
+
         }
 
         private Bitmap GetSummonnerSpellPicture(long sum)
@@ -127,6 +140,26 @@ namespace LeagueOverlay
                     return Properties.Resources.SummonerTeleport;
             }
             return null;
+        }
+
+        private String GetChampionLabel(RiotChampData champData, long champId)
+        {
+            foreach (var champ in champData.Data)
+            {
+                if (champId.Equals(champ.Key))
+                {
+                    return champ.Id.ToString();
+                }
+            }
+            return null;
+        }
+
+        public List<CdLabel> GetCdLabels
+        {
+            get
+            {
+                return cdTable;
+            }
         }
     }
 }

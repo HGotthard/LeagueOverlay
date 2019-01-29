@@ -66,6 +66,11 @@ namespace LeagueOverlay
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -95,6 +100,7 @@ namespace LeagueOverlay
             this.pictureBox1.Size = new System.Drawing.Size(48, 48);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox2
             // 
@@ -103,6 +109,7 @@ namespace LeagueOverlay
             this.pictureBox2.Size = new System.Drawing.Size(48, 48);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox3
             // 
@@ -111,6 +118,7 @@ namespace LeagueOverlay
             this.pictureBox3.Size = new System.Drawing.Size(48, 48);
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // pictureBox4
             // 
@@ -119,6 +127,7 @@ namespace LeagueOverlay
             this.pictureBox4.Size = new System.Drawing.Size(48, 48);
             this.pictureBox4.TabIndex = 4;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pictureBox5
             // 
@@ -127,6 +136,7 @@ namespace LeagueOverlay
             this.pictureBox5.Size = new System.Drawing.Size(48, 48);
             this.pictureBox5.TabIndex = 3;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // pictureBox6
             // 
@@ -135,6 +145,7 @@ namespace LeagueOverlay
             this.pictureBox6.Size = new System.Drawing.Size(48, 48);
             this.pictureBox6.TabIndex = 14;
             this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
             // pictureBox7
             // 
@@ -143,6 +154,7 @@ namespace LeagueOverlay
             this.pictureBox7.Size = new System.Drawing.Size(48, 48);
             this.pictureBox7.TabIndex = 13;
             this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
             // 
             // pictureBox8
             // 
@@ -151,6 +163,7 @@ namespace LeagueOverlay
             this.pictureBox8.Size = new System.Drawing.Size(48, 48);
             this.pictureBox8.TabIndex = 11;
             this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
             // pictureBox9
             // 
@@ -159,6 +172,7 @@ namespace LeagueOverlay
             this.pictureBox9.Size = new System.Drawing.Size(48, 48);
             this.pictureBox9.TabIndex = 9;
             this.pictureBox9.TabStop = false;
+            this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
             // 
             // pictureBox10
             // 
@@ -167,6 +181,7 @@ namespace LeagueOverlay
             this.pictureBox10.Size = new System.Drawing.Size(48, 48);
             this.pictureBox10.TabIndex = 15;
             this.pictureBox10.TabStop = false;
+            this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
             // 
             // pictureBox11
             // 
@@ -348,11 +363,61 @@ namespace LeagueOverlay
             this.label10.TabIndex = 44;
             this.label10.Text = "label10";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(38, 13);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 13);
+            this.label11.TabIndex = 46;
+            this.label11.Text = "label11";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(38, 68);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(41, 13);
+            this.label12.TabIndex = 47;
+            this.label12.Text = "label12";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(18, 146);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(41, 13);
+            this.label13.TabIndex = 48;
+            this.label13.Text = "label13";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(16, 199);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 13);
+            this.label14.TabIndex = 49;
+            this.label14.Text = "label14";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(23, 289);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(41, 13);
+            this.label15.TabIndex = 50;
+            this.label15.Text = "label15";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(430, 392);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label5);
@@ -410,36 +475,6 @@ namespace LeagueOverlay
 
         }
 
-        private void PictureBox5_Click(object sender, System.EventArgs e)
-        {
-            TimerStarter start = new TimerStarter();
-            start.startTimer(label5, timeALL);
-        }
-
-        private void PictureBox4_Click(object sender, System.EventArgs e)
-        {
-            TimerStarter start = new TimerStarter();
-            start.startTimer(label4, timeALL);
-        }
-
-        private void PictureBox3_Click(object sender, System.EventArgs e)
-        {
-            TimerStarter start = new TimerStarter();
-            start.startTimer(label3, timeCrab);
-        }
-
-        private void PictureBox2_Click(object sender, System.EventArgs e)
-        {
-            TimerStarter start = new TimerStarter();
-            start.startTimer(label2, timeALL);
-        }
-
-        private void PictureBox1_Click(object sender, System.EventArgs e)
-        {
-            TimerStarter start = new TimerStarter();
-            start.startTimer(label1,timeALL);
-        }
-
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -472,6 +507,11 @@ namespace LeagueOverlay
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
     }
 }
 

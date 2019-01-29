@@ -12,10 +12,12 @@ namespace LeagueOverlay
         int time;
         Label label;
         Timer tm;
-        public void startTimer(Label label, int time)
+        PictureBox pb;
+        public void startTimer(PictureBox pb,Label label, int time)
         {
             this.time = time;
             this.label = label;
+            this.pb = pb;
             tm = new Timer();
             tm.Interval = 1000;
             tm.Tick += Tm_Tick1;
@@ -28,6 +30,7 @@ namespace LeagueOverlay
             time--;
             if(time == 0)
             {
+                pb.Enabled = true;
                 tm.Stop();
                 label.Text = "up";
             }

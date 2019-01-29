@@ -30,7 +30,7 @@ namespace QuickType
         public string Name { get; set; }
 
         [JsonProperty("cooldown")]
-        public long Cooldown { get; set; }
+        public int Cooldown { get; set; }
     }
 
     public partial class RiotData
