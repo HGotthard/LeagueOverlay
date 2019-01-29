@@ -97,6 +97,26 @@ namespace LeagueOverlay
                 overlayForm.Location = new Point(lRect.left, lRect.top);
                 overlayForm.Height = lRect.bottom;
                 overlayForm.Width = lRect.right;
+
+
+                var startPoint = overlayForm.Height / 2 - overlayForm.pb[0].Height / 2 * 5 - 20;
+                var champLabel = 13;
+
+                for (int i = 0; i < overlayForm.pb.Length; i += 2)
+                {
+                    overlayForm.championLabel[i / 2].Location = new Point(0, (i / 2) * overlayForm.pb[i].Height + startPoint + (i / 2) * champLabel);
+
+                    overlayForm.pb[i].Location = new Point(0, (i / 2) * overlayForm.pb[i].Height + startPoint + ((i / 2) + 1) * champLabel);
+                    overlayForm.pb[i + 1].Location = new Point(overlayForm.pb[i].Width, (i / 2) * overlayForm.pb[i].Height + startPoint + ((i / 2) + 1) * champLabel);
+                    overlayForm.lb[i].Location = new Point(0, (i / 2) * overlayForm.pb[i].Height + startPoint + ((i / 2) + 1) * champLabel);
+                    overlayForm.lb[i + 1].Location = new Point(overlayForm.pb[i].Width, (i / 2) * overlayForm.pb[i].Height + startPoint + ((i / 2) + 1) * champLabel);
+
+
+                    overlayForm.campPb[i].Location = new Point(overlayForm.Width - 2 * overlayForm.campPb[i].Width, (i / 2) * overlayForm.pb[i].Height + startPoint);
+                    overlayForm.campPb[i + 1].Location = new Point(overlayForm.Width - 1 * overlayForm.campPb[i].Width, (i / 2) * overlayForm.pb[i].Height + startPoint);
+                    overlayForm.campLb[i].Location = new Point(overlayForm.Width - 2 * overlayForm.campPb[i].Width, (i / 2) * overlayForm.pb[i].Height + startPoint);
+                    overlayForm.campLb[i + 1].Location = new Point(overlayForm.Width - 1 * overlayForm.campPb[i].Width, (i / 2) * overlayForm.pb[i].Height + startPoint);
+                }
                 overlayForm.Visible = true;
             });
         }

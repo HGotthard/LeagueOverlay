@@ -195,6 +195,16 @@ namespace LeagueOverlay
             }
         }
 
+        public PictureBox[] campPb
+        {
+            get
+            {
+                return new PictureBox[] { this.pictureBox11, this.pictureBox12,this.pictureBox13,
+                this.pictureBox14, this.pictureBox15, this.pictureBox16, this.pictureBox17,
+                this.pictureBox18, this.pictureBox19, this.pictureBox20};
+            }
+        }
+
         public Label[] lb
         {
             get
@@ -211,6 +221,16 @@ namespace LeagueOverlay
             {
                 return new Label[] { this.label11, this.label12,this.label13,
                 this.label14, this.label15};
+            }
+        }
+
+        public Label[] campLb
+        {
+            get
+            {
+                return new Label[] { this.label16, this.label17,this.label18,
+                this.label19, this.label20, this.label21, this.label22,
+                this.label23, this.label24, this.label25};
             }
         }
 

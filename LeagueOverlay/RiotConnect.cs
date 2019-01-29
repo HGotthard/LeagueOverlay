@@ -33,7 +33,7 @@ namespace LeagueOverlay
                     ApiKey = "RGAPI-2b9edc7a-bfcb-442f-ba9d-3b7794c32481"
                 });
 
-                Summoner actSummoner = await client.GetSummonerBySummonerNameAsync("Proxyfox", PlatformId.EUW1).ConfigureAwait(false);
+                Summoner actSummoner = await client.GetSummonerBySummonerNameAsync("SlimeBoy", PlatformId.EUW1).ConfigureAwait(false);
 
                 CurrentGameInfo gameInfo = await client.GetActiveGameBySummonerIdAsync(actSummoner.Id, PlatformId.EUW1);
 
