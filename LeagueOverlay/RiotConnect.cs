@@ -36,6 +36,12 @@ namespace LeagueOverlay
                 Summoner actSummoner = await client.GetSummonerBySummonerNameAsync("Proxyfox", PlatformId.EUW1).ConfigureAwait(false);
 
                 CurrentGameInfo gameInfo = await client.GetActiveGameBySummonerIdAsync(actSummoner.Id, PlatformId.EUW1);
+
+                if(gameInfo == null)
+                {
+                    Debug.WriteLine("not ingame");
+                    return;
+                }
                 var teamId = gameInfo.Participants.Find(x => x.SummonerId == actSummoner.Id).TeamId;
                 var sum = gameInfo.Participants.FindAll(x => x.TeamId != teamId);
 

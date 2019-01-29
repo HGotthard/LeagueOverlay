@@ -14,6 +14,8 @@ namespace LeagueOverlay
     public partial class Form1 : Form
     {
         RiotConnect rt;
+        private int timeALL = 150;
+        private int timeCrab = 180;
 
         public Form1()
         {
@@ -137,6 +139,76 @@ namespace LeagueOverlay
 
             var cooldown = rt.GetCdLabels.Find(x => x.GetLabel.Equals(label10)).GetCd;
             ts.startTimer(pictureBox10, label10, cooldown);
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+            pictureBox11.Enabled = false;
+            TimerStarter ts = new TimerStarter();
+            ts.startTimer(pictureBox11, label16, timeALL);
+        }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            pictureBox12.Enabled = false;
+            TimerStarter ts = new TimerStarter();
+            ts.startTimer(pictureBox12, label17, timeALL);
+        }
+
+        private void pictureBox13_Click(object sender, EventArgs e)
+        {
+            pictureBox13.Enabled = false;
+            TimerStarter ts = new TimerStarter();
+            ts.startTimer(pictureBox13, label18, timeALL);
+        }
+
+        private void pictureBox14_Click(object sender, EventArgs e)
+        {
+            pictureBox14.Enabled = false;
+            TimerStarter ts = new TimerStarter();
+            ts.startTimer(pictureBox14, label19, timeALL);
+        }
+
+        private void pictureBox15_Click(object sender, EventArgs e)
+        {
+            pictureBox15.Enabled = false;
+            TimerStarter ts = new TimerStarter();
+            ts.startTimer(pictureBox15, label20, timeCrab);
+        }
+
+        private void pictureBox16_Click(object sender, EventArgs e)
+        {
+            pictureBox16.Enabled = false;
+            TimerStarter ts = new TimerStarter();
+            ts.startTimer(pictureBox16, label21, timeCrab);
+        }
+
+        private void pictureBox17_Click(object sender, EventArgs e)
+        {
+            pictureBox17.Enabled = false;
+            TimerStarter ts = new TimerStarter();
+            ts.startTimer(pictureBox17, label22, timeALL);
+        }
+
+        private void pictureBox18_Click(object sender, EventArgs e)
+        {
+            pictureBox18.Enabled = false;
+            TimerStarter ts = new TimerStarter();
+            ts.startTimer(pictureBox18, label23, timeALL);
+        }
+
+        private void pictureBox19_Click(object sender, EventArgs e)
+        {
+            pictureBox19.Enabled = false;
+            TimerStarter ts = new TimerStarter();
+            ts.startTimer(pictureBox19, label24, timeALL);
+        }
+
+        private void pictureBox20_Click(object sender, EventArgs e)
+        {
+            pictureBox20.Enabled = false;
+            TimerStarter ts = new TimerStarter();
+            ts.startTimer(pictureBox20, label25, timeALL);
         }
     }
 }
