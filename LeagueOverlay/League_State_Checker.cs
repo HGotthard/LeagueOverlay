@@ -99,7 +99,7 @@ namespace LeagueOverlay
                 overlayForm.Width = lRect.right;
 
 
-                var startPoint = overlayForm.Height / 2 - overlayForm.pb[0].Height / 2 * 5 - 20;
+                var startPoint = overlayForm.Height / 2 - overlayForm.pb[0].Height / 2 * 5 - 100;
                 var champLabel = 13;
 
                 for (int i = 0; i < overlayForm.pb.Length; i += 2)
