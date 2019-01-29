@@ -165,9 +165,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\JungleSidebar.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\crab.png" />
   </ItemGroup>
   <ItemGroup>
@@ -180,7 +177,6 @@
     <None Include="Resources\raptor.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\summoner.json" />
     <None Include="Resources\wolf.png" />
   </ItemGroup>
   <ItemGroup>
