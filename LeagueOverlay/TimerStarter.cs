@@ -15,6 +15,7 @@ namespace LeagueOverlay
         PictureBox pb;
         public void startTimer(PictureBox pb,Label label, int time)
         {
+       //TODO     time--;
             this.time = time;
             this.label = label;
             this.pb = pb;
